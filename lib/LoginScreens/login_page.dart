@@ -4,6 +4,8 @@ import 'package:pet_shop/LoginScreens/forget_password_screen.dart';
 import 'package:pet_shop/LoginScreens/signup_page.dart';
 import 'package:pet_shop/Widgets/toast_message.dart';
 import 'package:pet_shop/home_screen.dart';
+import 'package:pet_shop/main.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Login_Page extends StatefulWidget {
   const Login_Page({Key? key}) : super(key: key);
@@ -34,7 +36,7 @@ class _Login_PageState extends State<Login_Page> {
           Container(
             width: mwidth,
             height: mheight,
-            color: Color(0xff142c44),
+            color: const Color(0xff142c44),
           ),Positioned(
               top: mheight * 0.078,left: mwidth*0.152,
               child: Image.asset(
@@ -47,7 +49,7 @@ class _Login_PageState extends State<Login_Page> {
             child: Container(
               width: mwidth,
               height: mheight * 0.57,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
                       topRight: Radius.circular(20),
@@ -172,8 +174,10 @@ class _Login_PageState extends State<Login_Page> {
                           final isvalid = form_key.currentState?.validate();
                           if (isvalid == true) {
                             form_key.currentState?.save();
-                            auth.signInWithEmailAndPassword(email: loginPageEmail.text, password: loginPagePassword.text).then((value){
-                              Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=>HomeScreen()));
+                            auth.signInWithEmailAndPassword(email: loginPageEmail.text, password: loginPagePassword.text).then((value)async{
+                              final preferences=await SharedPreferences.getInstance();
+                              preferences.setBool(keyValue, true);
+                              Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=>const HomeScreen()));
                             }).onError((error, stackTrace) {
                               ToastMessage().toastmessage(message: error.toString());
                             });
@@ -232,7 +236,7 @@ class _Login_PageState extends State<Login_Page> {
                           ),
                           TextButton(
                             onPressed: (){
-                              Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=>Signup_Page()));
+                              Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=>const Signup_Page()));
                             },
                             child: const Text(
                               'Signup',

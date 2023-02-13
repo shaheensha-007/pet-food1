@@ -3,8 +3,10 @@ import 'dart:core';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:pet_shop/home_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../Widgets/toast_message.dart';
+import '../main.dart';
 
 class Signup_Page extends StatefulWidget {
   const Signup_Page({Key? key}) : super(key: key);
@@ -37,7 +39,7 @@ class _Signup_PageState extends State<Signup_Page> {
         Container(
           width: mwidth,
           height: mheight,
-          color: Color(0xff142c44),
+          color: const Color(0xff142c44),
         ),
         Positioned(
             top: mheight * 0.075,
@@ -52,7 +54,7 @@ class _Signup_PageState extends State<Signup_Page> {
             child: Container(
               width: mwidth,
               height: mheight * 0.57,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
                       topRight: Radius.circular(20),
@@ -235,10 +237,12 @@ class _Signup_PageState extends State<Signup_Page> {
                                 .createUserWithEmailAndPassword(
                                     email: signupPageEmail.text,
                                     password: signupPagePassword.text)
-                                .then((value) {
+                                .then((value) async{
+                              final preferences=await SharedPreferences.getInstance();
+                              preferences.setBool(keyValue, true);
                                   ToastMessage().toastmessage(message: 'Successfully Registerd');
                               Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (ctx) => HomeScreen()));
+                                  builder: (ctx) => const HomeScreen()));
                             }).onError((error, stackTrace) {
                               ToastMessage()
                                   .toastmessage(message: error.toString());

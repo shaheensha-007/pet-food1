@@ -14,7 +14,7 @@ class _Starting_ScreenState extends State<Starting_Screen> {
   Widget build(BuildContext context) {
     var mwidth = MediaQuery.of(context).size.width;
     var mheight = MediaQuery.of(context).size.height;
-    return Scaffold(backgroundColor: Color(0xff142c44),
+    return Scaffold(backgroundColor: const Color(0xff142c44),
         resizeToAvoidBottomInset: false,
         body: SafeArea(
           child: Column(
@@ -66,7 +66,7 @@ class _Starting_ScreenState extends State<Starting_Screen> {
                 height: mheight * 0.06,
               ),
               Center(
-                child: GestureDetector(onTap: ()=>Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext a)=>Login_Page())),
+                child: GestureDetector(onTap: ()=>Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext a)=>const Login_Page())),
                   child: Container(
                     decoration: BoxDecoration(
                         color: const  Color(0xff385f67),

@@ -20,7 +20,7 @@ class ForgetPassword extends StatelessWidget {
     RegExp regex = RegExp(pattern);
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: Color(0xff142c44),
+      backgroundColor: const Color(0xff142c44),
       body: Form(
         key: form_key,
         child: Column(

@@ -1,8 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-import 'LoginScreens/starting_screen.dart';
+import 'LoginScreens/splash_screen.dart';
 
+const keyValue='';
 void main()async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
 scaffoldBackgroundColor: Colors.transparent,
         primarySwatch: Colors.blue,
       ),
-      home: Starting_Screen (),
+      home: const Splash_Screen(),
     );
   }
 }
