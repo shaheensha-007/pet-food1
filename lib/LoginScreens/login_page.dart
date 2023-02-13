@@ -1,5 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:pet_shop/LoginScreens/forget_password_screen.dart';
 import 'package:pet_shop/LoginScreens/signup_page.dart';
+import 'package:pet_shop/Widgets/toast_message.dart';
 import 'package:pet_shop/home_screen.dart';
 
 class Login_Page extends StatefulWidget {
@@ -21,6 +24,7 @@ class _Login_PageState extends State<Login_Page> {
   Widget build(BuildContext context) {
     var mwidth = MediaQuery.of(context).size.width;
     var mheight = MediaQuery.of(context).size.height;
+    FirebaseAuth auth=FirebaseAuth.instance;
 
     RegExp regex = RegExp(pattern);
     return Scaffold(
@@ -168,7 +172,12 @@ class _Login_PageState extends State<Login_Page> {
                           final isvalid = form_key.currentState?.validate();
                           if (isvalid == true) {
                             form_key.currentState?.save();
-                           Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=>HomeScreen()));
+                            auth.signInWithEmailAndPassword(email: loginPageEmail.text, password: loginPagePassword.text).then((value){
+                              Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=>HomeScreen()));
+                            }).onError((error, stackTrace) {
+                              ToastMessage().toastmessage(message: error.toString());
+                            });
+
                         }},
                         child: Container(
                           padding: EdgeInsets.only(left: mwidth * 0.01),
@@ -197,9 +206,11 @@ class _Login_PageState extends State<Login_Page> {
                         SizedBox(
                           width: mwidth * 0.63,
                         ),
-                        const Text(
-                          'Forgot password?',
-                          style: TextStyle(color: Colors.black),
+                        TextButton(onPressed: ()=>Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext a)=>ForgetPassword())),
+                          child: const Text(
+                            'Forgot password?',
+                            style: TextStyle(color: Colors.black),
+                          ),
                         )
                       ],
                     ),
