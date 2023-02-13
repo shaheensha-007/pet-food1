@@ -34,7 +34,13 @@ class _Signup_PageState extends State<Signup_Page> {
               width: mwidth,
               height: mheight,
               color: Color(0xff142c44),
-            ),
+            ),Positioned(
+                top: mheight * 0.075,left: mwidth*0.148,
+                child: Image.asset(
+                  'assets/signup.png',
+                  height: mheight * 0.35,
+                  width: mwidth * 0.71,
+                )),
             Positioned(
                 bottom: 0,
                 child: Container(
@@ -220,8 +226,8 @@ class _Signup_PageState extends State<Signup_Page> {
                                   decoration: BoxDecoration(
                                       color: const Color(0xff385f67),
                                       borderRadius: BorderRadius.circular(12)),
-                                  width: mwidth * 0.9,
-                                  height: mheight * 0.085,
+                                  width: mwidth * 0.92,
+                                  height: mheight * 0.075,
                                   child: const Center(
                                     child: Text(
                                       'Signup',

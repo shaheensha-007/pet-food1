@@ -31,7 +31,13 @@ class _Login_PageState extends State<Login_Page> {
             width: mwidth,
             height: mheight,
             color: Color(0xff142c44),
-          ),
+          ),Positioned(
+              top: mheight * 0.078,left: mwidth*0.152,
+              child: Image.asset(
+                'assets/login.png',
+                height: mheight * 0.35,
+                width: mwidth * 0.71,
+              )),
           Positioned(
             bottom: 0,
             child: Container(
@@ -169,8 +175,8 @@ class _Login_PageState extends State<Login_Page> {
                           decoration: BoxDecoration(
                               color: const Color(0xff385f67),
                               borderRadius: BorderRadius.circular(12)),
-                          width: mwidth * 0.9,
-                          height: mheight * 0.085,
+                          width: mwidth * 0.92,
+                          height: mheight * 0.075,
                           child: const Center(
                             child: Text(
                               'Login',
