@@ -17,10 +17,6 @@ class _HomeScreenState extends State<HomeScreen> {
     final double itemWidth = size.width / 2;
     return Scaffold(
         resizeToAvoidBottomInset: false,
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {},child: Text('Sell'),
-        ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         appBar: AppBar(
             toolbarHeight: 0,
             centerTitle: false,

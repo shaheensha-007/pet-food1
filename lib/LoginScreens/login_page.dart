@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:pet_shop/LoginScreens/forget_password_screen.dart';
 import 'package:pet_shop/LoginScreens/signup_page.dart';
 import 'package:pet_shop/Widgets/toast_message.dart';
-import 'package:pet_shop/home_screen.dart';
 import 'package:pet_shop/main.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../bottom_Navigation_base_screen.dart';
 
 class Login_Page extends StatefulWidget {
   const Login_Page({Key? key}) : super(key: key);
@@ -177,7 +178,7 @@ class _Login_PageState extends State<Login_Page> {
                             auth.signInWithEmailAndPassword(email: loginPageEmail.text, password: loginPagePassword.text).then((value)async{
                               final preferences=await SharedPreferences.getInstance();
                               preferences.setBool(keyValue, true);
-                              Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=>const HomeScreen()));
+                              Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=>const BottomNavigation()));
                             }).onError((error, stackTrace) {
                               ToastMessage().toastmessage(message: error.toString());
                             });

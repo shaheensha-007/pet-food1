@@ -19,7 +19,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(debugShowCheckedModeBanner: false,
       title: 'Pet Sale App',
       theme: ThemeData(
-scaffoldBackgroundColor: Colors.transparent,
         primarySwatch: Colors.blue,
       ),
       home: const Splash_Screen(),

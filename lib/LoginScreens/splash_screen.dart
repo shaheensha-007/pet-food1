@@ -2,9 +2,10 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:pet_shop/LoginScreens/starting_screen.dart';
-import 'package:pet_shop/home_screen.dart';
 import 'package:pet_shop/main.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../bottom_Navigation_base_screen.dart';
 
 
 class Splash_Screen extends StatefulWidget {
@@ -28,7 +29,7 @@ class _Splash_ScreenState extends State<Splash_Screen> {
       else
       {
         Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) =>const HomeScreen()));
+            builder: (context) =>const BottomNavigation()));
       }
     });}
 

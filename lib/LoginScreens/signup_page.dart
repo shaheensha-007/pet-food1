@@ -2,10 +2,10 @@ import 'dart:core';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:pet_shop/home_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../Widgets/toast_message.dart';
+import '../bottom_Navigation_base_screen.dart';
 import '../main.dart';
 
 class Signup_Page extends StatefulWidget {
@@ -242,7 +242,7 @@ class _Signup_PageState extends State<Signup_Page> {
                               preferences.setBool(keyValue, true);
                                   ToastMessage().toastmessage(message: 'Successfully Registerd');
                               Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (ctx) => const HomeScreen()));
+                                  builder: (ctx) => const BottomNavigation()));
                             }).onError((error, stackTrace) {
                               ToastMessage()
                                   .toastmessage(message: error.toString());
