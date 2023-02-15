@@ -21,7 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
             toolbarHeight: 0,
             centerTitle: false,
             elevation: 0,
-            backgroundColor: Color(0xff6fb8b2),
+            backgroundColor: Colors.white,
             automaticallyImplyLeading: false,
             primary: false,
             bottom: PreferredSize(
@@ -92,7 +92,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ]),
             )),
-        backgroundColor: Color(0xff6fb8b2),
+        backgroundColor: Colors.white,
         body: GridView.count(
             childAspectRatio: (itemWidth / itemHeight),
             padding: EdgeInsets.only(
@@ -115,6 +115,71 @@ class _HomeScreenState extends State<HomeScreen> {
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           color: Colors.white),
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            height: mheight * 0.01,
+                          ),
+                          Container(
+                            width: mwidth * 0.42,
+                            height: mheight * 0.145,
+                            color: Colors.red,
+                            child: Image.asset(
+                              'assets/dog.jpeg',
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          SizedBox(
+                            height: mheight * 0.005,
+                          ),
+                          Container(
+                              width: mwidth * 0.42,
+                              height: mheight * 0.09,padding: EdgeInsets.only(left: mwidth*0.013),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Text(
+                                    'Dalmatian',
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                  Text(
+                                    'Dog Breed',
+                                    style: TextStyle(
+                                        color: Color(0xff385f67), fontSize: 12),
+                                  ),
+                                  Text(
+                                    '₹ 15000',
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 15),
+                                  ),
+                                  Row(
+                                    children: [
+                                      Icon(
+                                        Icons.location_on_outlined,
+                                        size: 12,
+                                        color: Colors.grey,
+                                      ),
+                                      SizedBox(
+                                        width: mwidth * 0.01,
+                                      ),
+                                      Text(
+                                        'MALAPPURAM',
+                                        style: TextStyle(
+                                            color: Colors.grey, fontSize: 12),
+                                      )
+                                    ],
+                                  )
+                                ],
+                              ))
+                        ],
+                      ),
                     ),
                   ),
                 );

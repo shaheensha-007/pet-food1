@@ -4,6 +4,8 @@ import 'package:pet_shop/BottomNavigationScreen/chat_screen.dart';
 import 'package:pet_shop/BottomNavigationScreen/home_screen.dart';
 import 'package:pet_shop/BottomNavigationScreen/my_ads_screen.dart';
 
+import 'BottomNavigationScreen/Sell/offering.dart';
+
 class BottomNavigation extends StatefulWidget {
   const BottomNavigation({Key? key}) : super(key: key);
 
@@ -26,15 +28,15 @@ class _BottomNavigationState extends State<BottomNavigation> {
         bucket: bucket,
         child: currentScreen,
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},child: Text('SELL'),
+      floatingActionButton: FloatingActionButton(backgroundColor: Color(0xff385f67),
+        onPressed: ()=>Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext a)=>SellBaseScreen())),child: Text('SELL'),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
         shape: CircularNotchedRectangle(),
-        notchMargin: 10,
+        notchMargin: mwidth*0.02,
         child: Container(
-          height: mheight * 0.06,
+          height: mheight * 0.07,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -53,14 +55,13 @@ class _BottomNavigationState extends State<BottomNavigation> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(
-                          Icons.home,
-                          color: currentTab == 0 ? Colors.blue : Colors.grey,
+                          currentTab==0?Icons.home:Icons.home_outlined,
+                          color: Color(0xff385f67),
                         ),
                         Text(
                           'Home',
                           style: TextStyle(
-                              color:
-                                  currentTab == 0 ? Colors.blue : Colors.grey),
+                              color: Color(0xff385f67)),
                         )
                       ],
                     ),
@@ -76,14 +77,13 @@ class _BottomNavigationState extends State<BottomNavigation> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(
-                          Icons.home,
-                          color: currentTab == 1 ? Colors.blue : Colors.grey,
+                          currentTab==1?Icons.chat:Icons.chat_outlined,
+                          color:Color(0xff385f67),
                         ),
                         Text(
                           'Chats',
                           style: TextStyle(
-                              color:
-                              currentTab == 1 ? Colors.blue : Colors.grey),
+                              color: Color(0xff385f67)),
                         )
                       ],
                     ),
@@ -104,14 +104,13 @@ class _BottomNavigationState extends State<BottomNavigation> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(
-                          Icons.home,
-                          color: currentTab == 2 ? Colors.blue : Colors.grey,
+                          currentTab==2?Icons.favorite:Icons.favorite_outline_rounded,
+                          color:Color(0xff385f67),
                         ),
                         Text(
                           'My Add',
                           style: TextStyle(
-                              color:
-                              currentTab == 2 ? Colors.blue : Colors.grey),
+                              color: Color(0xff385f67)),
                         )
                       ],
                     ),
@@ -127,14 +126,13 @@ class _BottomNavigationState extends State<BottomNavigation> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(
-                          Icons.home,
-                          color: currentTab == 3 ? Colors.blue : Colors.grey,
+                          currentTab==3?Icons.account_circle:Icons.account_circle_outlined,
+                          color:Color(0xff385f67),
                         ),
                         Text(
                           'Account',
                           style: TextStyle(
-                              color:
-                              currentTab == 3 ? Colors.blue : Colors.grey),
+                              color: Color(0xff385f67)),
                         )
                       ],
                     ),
