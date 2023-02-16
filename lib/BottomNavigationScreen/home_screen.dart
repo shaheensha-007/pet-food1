@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -69,6 +70,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                         fontSize: 16,
                                         fontWeight: FontWeight.w400),
                                   ))),
+
+
                               SizedBox(
                                 width: mwidth * 0.02,
                               ),
@@ -93,7 +96,69 @@ class _HomeScreenState extends State<HomeScreen> {
                   ]),
             )),
         backgroundColor: Colors.white,
-        body: GridView.count(
+        body:ListView(
+          children: [
+            SizedBox(
+              height: mheight*0.03,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  height: mheight*0.20,
+                  width: mwidth*0.900,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(17),
+                    child:CarouselSlider(
+                      items: [
+                        Container(
+                          margin: EdgeInsets.all(8.0),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10.0),
+                            image: DecorationImage(
+                              image: AssetImage("assets/startingscreenicon.png"),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.all(8.0),
+                          decoration: BoxDecoration(
+
+                            image: DecorationImage(
+                              image: AssetImage("assets/MeO-cat-food-barand-banner.jpg"),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.all(8.0),
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage("assets/startingscreenicon.png"),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                      ],
+                      options: CarouselOptions(
+                        height: 600.0,
+                        enlargeCenterPage: true,
+                        autoPlay: true,
+                        aspectRatio: 16 / 9,
+                        autoPlayCurve: Curves.easeInCirc,
+                        enableInfiniteScroll: true,
+                        autoPlayAnimationDuration: Duration(milliseconds: 100),
+                        viewportFraction: 0.9,
+                      ),
+                    ),
+                  ),
+
+                )
+
+              ],
+            ),
+        GridView.count(
             childAspectRatio: (itemWidth / itemHeight),
             padding: EdgeInsets.only(
                 top: mheight * 0.016,
@@ -184,6 +249,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 );
               },
-            )));
+
+            )
+        )
+        ]
+    )
+    );
   }
 }
