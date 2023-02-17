@@ -116,7 +116,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10.0),
                             image: DecorationImage(
-                              image: AssetImage("assets/startingscreenicon.png"),
+                              image: AssetImage("assets/dog.jpeg"),
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -135,7 +135,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           margin: EdgeInsets.all(8.0),
                           decoration: BoxDecoration(
                             image: DecorationImage(
-                              image: AssetImage("assets/startingscreenicon.png"),
+                              image: AssetImage("assets/MeO-cat-food-barand-banner.jpg"),
                               fit: BoxFit.cover,
                             ),
                           ),

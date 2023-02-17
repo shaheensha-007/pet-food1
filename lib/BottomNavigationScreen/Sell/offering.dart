@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 class SellBaseScreen extends StatefulWidget {
@@ -29,11 +31,66 @@ class _SellBaseScreenState extends State<SellBaseScreen> {
           style: TextStyle(color: Color(0xff385f67), fontSize: 19),
         ),
       ),
-      body: Container(
-        width: mwidth * 0.33,
-        height: mheight * 0.17,
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),border: Border.all(color: Color(0xff385f67))),
-        child: Center(child: Container(width: mwidth*0.03,),),
+      body: Row(
+        children: [
+
+          Stack(
+            children: [
+              Container(
+              height: mheight*0.17,
+              width:mwidth*0.33 ,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: ExactAssetImage("assets/photo-1617347454431-f49d7ff5c3b1.jpg"),
+                  fit: BoxFit.cover,
+                ),
+              ),
+              child: ClipRRect(
+              // make sure we apply clip it properly
+              child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 1, sigmaY: 1),
+          child: Container(
+            alignment: Alignment.center,
+            color: Colors.grey.withOpacity(0.1),
+            child: Text(
+              "delivery",
+              style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+            ),
+    )
+              )
+              )
+              ),
+               ],
+          ),
+
+           Padding(
+             padding:  EdgeInsets.only(left:mwidth*0.09 ),
+             child: Container(
+                height: mheight*0.17,
+                width:mwidth*0.33 ,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: ExactAssetImage("assets/wp7054127.jpg"),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                child: ClipRRect(
+                  // make sure we apply clip it properly
+                    child: BackdropFilter(
+                        filter: ImageFilter.blur(sigmaX: 1, sigmaY: 1),
+                        child: Container(
+                          alignment: Alignment.center,
+                          color: Colors.grey.withOpacity(0.1),
+                          child: Text(
+                            "Cat",
+                            style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+                          ),
+                        )
+                    )
+                )
+          ),
+           ),
+    ]
       ),
     );
   }
